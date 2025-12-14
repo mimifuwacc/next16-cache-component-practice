@@ -8,12 +8,12 @@ export async function SessionInfo({ sessionId }: { sessionId: number }) {
   cacheTag(`session-${sessionId}`);
   cacheLife("default");
 
-  const { session, bookingCount } = await getSessionData(sessionId);
+  // const { session, bookingCount } = await getSessionData(sessionId);
 
-  // const result = await fetch(
-  //   `${process.env.API_URL}/session?sessionId=${sessionId}`
-  // );
-  // const { session, bookingCount } = await result.json();
+  const result = await fetch(
+    `${process.env.API_URL}/session?sessionId=${sessionId}`
+  );
+  const { session, bookingCount } = await result.json();
 
   console.log("Fetch initiated for session data with caching:", sessionId);
 

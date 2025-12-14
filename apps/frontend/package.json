@@ -1,4 +1,5 @@
 {
+  "name": "frontend",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,7 +12,8 @@
     "next": "16.0.10",
     "postgres": "^3.4.7",
     "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "react-dom": "19.2.1",
+    "@repo/db": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

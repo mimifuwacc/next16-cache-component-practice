@@ -1,11 +1,8 @@
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
+import { config } from "@repo/db/config";
 
-export function getDb() {
-  const connectionString = process.env.DATABASE_URL || "";
-  if (!connectionString) {
-    throw new Error("DATABASE_URL is missing");
-  }
-  const conn = postgres(connectionString);
+export function createDb() {
+  const conn = postgres(config.db.url);
   return drizzle(conn);
 }

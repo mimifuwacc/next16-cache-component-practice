@@ -1,0 +1,33 @@
+{
+  "name": "@repo/db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./config": {
+      "import": "./dist/config/index.js",
+      "require": "./dist/config/index.js"
+    },
+    "./kit": {
+      "import": "./dist/kit/index.js",
+      "require": "./dist/kit/index.js"
+    },
+    "./schema": {
+      "import": "./dist/schema.js",
+      "require": "./dist/schema.js"
+    }
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.45.1",
+    "drizzle-seed": "^0.3.1",
+    "postgres": "^3.4.7"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.8"
+  },
+  "scripts": {
+    "build": "tsc --outDir dist"
+  }
+}

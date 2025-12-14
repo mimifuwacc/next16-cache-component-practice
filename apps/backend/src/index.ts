@@ -1,8 +1,8 @@
 import { Hono } from "hono";
 
-import { getDb } from "@/lib/db";
+import { createDb } from "@/lib/db";
 import { getSessionData } from "@/lib/data";
-import { bookings } from "@/db/schema";
+import { bookings } from "@repo/db/schema";
 
 const app = new Hono();
 
@@ -20,7 +20,7 @@ app.get("/session", async (c) => {
 
 app.post("/book", async (c) => {
   const { sessionId } = await c.req.json();
-  const db = getDb();
+  const db = createDb();
 
   console.log("Booking requested for session:", sessionId);
 

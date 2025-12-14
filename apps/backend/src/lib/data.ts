@@ -1,9 +1,9 @@
-import { getDb } from "@/lib/db";
-import { sessions, bookings } from "@/db/schema";
+import { createDb } from "./db";
+import { sessions, bookings } from "@repo/db/schema";
 import { eq, sql } from "drizzle-orm";
 
 export const getSessionData = async (sessionId: number) => {
-  const db = getDb();
+  const db = createDb();
 
   const sessionResult = await db
     .select()
